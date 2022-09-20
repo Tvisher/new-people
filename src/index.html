@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitename</title>
+    <link rel="preload" href="./fonts/Ubuntu-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.min.css">
+    <script> </script>
+</head>
+
+<body>
+    <header> </header>
+
+    <main>
+        <section class="main-section">
+            <div class="container">
+                <div class="main-section__wrapper">
+                    <div class="main-section__content">
+                        <h1 class="main-title">Привет!</h1>
+                        <p class="main-descr">
+                            Добро пожаловать на страницу с формой описания проектов Движения «Новые люди». Если у тебя есть идея проекта, способного изменить Казахстан к лучшему или улучшить Движение, то ты в нужном месте.
+                        </p>
+                        <p class="gray-p">Последовательно отвечай на вопросы формы, ведь их задача помочь тебе глубже понять собственный проект, увидеть в нем сильные и слабые стороны, а, следовательно, подготовить его к реализации в максимально проработанном виде.</p>
+                        <p class="black-p">Старайся отвечать развёрнуто, ведь от этого зависит, как проект поймут окружающие. В том числе и твои сподвижники.</p>
+
+                        <p class="gray-p">Если вдруг представленной формы окажется для тебя недостаточно, то ты всегда можешь загрузить дополнительные материалы: фото, видео, ссылки и т. д.</p>
+                        <p class="black-p">P. S. Оказался на странице случайно, но чувствуешь важность момента? Пиши нам в Телеграм — <a href="#" class="link-p">@Assel_zhanaadamdar</a>, введём тебя в курс дела.</p>
+                    </div>
+                    <div class="main-section__image">
+                        <div class="image__wrap">
+                            <img src="@img/man.svg" alt="">
+                            <img class="rotate" src="@img/bal.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="forms-section">
+            <div class="container">
+                <h2 class="section-title">
+                    Ваши данные
+                </h2>
+                <form action="#">
+                    <div class="personal-data">
+                        <label class="personal-data__item">
+                            <span>Как тебя зовут? Укажи пожалуйста полностью свое имя и фамилию.</span>
+                            <input type="text" placeholder="Фамилия и имя">
+                        </label>
+                        <label class="personal-data__item">
+                            <span>К какому номеру телефона привязан твой телеграм-аккаунт, чтобы связаться с тобой в случае дополнительных вопросов?</span>
+                            <input type="tel" placeholder="+7 (7XX) XXX-XX-XX">
+                        </label>
+                        <label class="personal-data__item">
+                            <span>По какой электронной почте с тобой можно будет вести переписку по проекту?</span>
+                            <input type="email" placeholder="mymail@domain.kz">
+                        </label>
+                    </div>
+                    <h2 class="section-title">
+                        Выбери, на что направлен твой проект
+                    </h2>
+                    <div class="selection-block">
+                        <label class="selection-item">
+                            <span class="selection-item__title">Внутренний</span>
+                            <p class="selection-item__descr">Улучшение Движения (например, организация клуба дебатов для активистов, создание TikTok-аккаунта или сайта Движения и пр.)</p>
+                            <input type="radio" name="select-project" id="innder">
+                            <div class="custom-radio">
+                                <span class="custom-radio__text">выбрать</span>
+                            </div>
+                        </label>
+                        <label class="selection-item">
+                            <span class="selection-item__title">Внешний</span>
+                            <p class="selection-item__descr">Решение проблемы в Казахстане (например, продажа алкоголя несовершеннолетним, бездумная градостроительная политика города и пр.)</p>
+                            <input type="radio" name="select-project" id="outer">
+                            <div class="custom-radio">
+                                <span class="custom-radio__text">выбрать</span>
+                            </div>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer> </footer>
+</body>
+<script src="./js/app.min.js"></script>
+
+</html>
