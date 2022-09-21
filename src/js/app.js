@@ -5,6 +5,20 @@ import IMask from 'imask';
 // Проверка поддержки webP
 baseFunction.testWebP();
 
+
+
+// Принятие условий сайта, срабатывает 1 раз при первом заходе
+const compliteModal = document.querySelector('#compliteModal');
+const compliteBtn = compliteModal.querySelector('.complite-btn');
+compliteBtn.onclick = function () {
+    compliteModal.classList.remove('show');
+    localStorage.setItem('AcceptAndContinue', true);
+}
+if (localStorage.getItem('AcceptAndContinue')) {
+    compliteModal.classList.remove('show');
+}
+
+
 // Маска на номера телефона
 document.querySelectorAll('input[type="tel"]').forEach(input => { IMask(input, { mask: '+{7}(000) 000-00-00' }) });
 
