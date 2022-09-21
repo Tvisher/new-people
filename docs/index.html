@@ -44,19 +44,22 @@
                 <h2 class="section-title">
                     Ваши данные
                 </h2>
-                <form action="#">
+                <form action="#" id="questions-form" class="">
                     <div class="personal-data">
-                        <label class="personal-data__item">
+                        <label class="personal-data__item _error">
                             <span>Как тебя зовут? Укажи пожалуйста полностью свое имя и фамилию.</span>
-                            <input type="text" placeholder="Фамилия и имя">
+                            <div class="error-mes">Обязательное поле</div>
+                            <input type="text" placeholder="Фамилия и имя" id="nameInput">
                         </label>
-                        <label class="personal-data__item">
+                        <label class="personal-data__item _error">
                             <span>К какому номеру телефона привязан твой телеграм-аккаунт, чтобы связаться с тобой в случае дополнительных вопросов?</span>
-                            <input type="tel" placeholder="+7 (7XX) XXX-XX-XX">
+                            <div class="error-mes">Обязательное поле</div>
+                            <input type="tel" placeholder="+7 (7XX) XXX-XX-XX" id="phoneInput">
                         </label>
-                        <label class="personal-data__item">
+                        <label class="personal-data__item _error">
                             <span>По какой электронной почте с тобой можно будет вести переписку по проекту?</span>
-                            <input type="email" placeholder="mymail@domain.kz">
+                            <div class="error-mes">Обязательное поле</div>
+                            <input type="email" placeholder="mymail@domain.kz" id="emailInput">
                         </label>
                     </div>
                     <h2 class="section-title">
@@ -66,7 +69,7 @@
                         <label class="selection-item">
                             <span class="selection-item__title">Внутренний</span>
                             <p class="selection-item__descr">Улучшение Движения (например, организация клуба дебатов для активистов, создание TikTok-аккаунта или сайта Движения и пр.)</p>
-                            <input type="radio" name="select-project" id="innder">
+                            <input type="radio" name="select-project" data-radio-id="isInner">
                             <div class="custom-radio">
                                 <span class="custom-radio__text">выбрать</span>
                             </div>
@@ -74,11 +77,355 @@
                         <label class="selection-item">
                             <span class="selection-item__title">Внешний</span>
                             <p class="selection-item__descr">Решение проблемы в Казахстане (например, продажа алкоголя несовершеннолетним, бездумная градостроительная политика города и пр.)</p>
-                            <input type="radio" name="select-project" id="outer">
+                            <input type="radio" name="select-project" data-radio-id="isOuter">
                             <div class="custom-radio">
                                 <span class="custom-radio__text">выбрать</span>
                             </div>
                         </label>
+                    </div>
+                    <div class="questions-wrapper _error" id="isInner">
+                        <div class="question-block _error">
+                            <h3 class="question__title">Какая проблема в казахстане тебя волнует?</h3>
+                            <p class="question__descr">Не пытайся объять необъятное. Сконцентрируйся на максимально конкретной проблеме. Не стоит указывать что-то глобальное, вроде коррупции и клановости, ведь эти понятия очень общие и поэтому не имеют конкретного решения, а значит больше подходят популистам. Мы — не они. Сформулируй проблему таким образом, чтобы сразу было понятно не только «что», но и «где» и «кто». Например, не «коррупция», а «владельцы автозаправок продают плохое топливо в моем городе», не «клановость», а «неисполнение депутатами маслихата моего района собственных предвыборных обещаний».</p>
+                            <div class="question__example">Пример: в магазине у моего дома продают просроченные продукты.</div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Почему эта проблема возникла?</h3>
+                            <p class="question__descr">Проблемы не возникают из ничего. Грубые чиновники, бездомные животные, хамы на дорогах – это лишь следствие, отражение более глубокого сбоя в системе и мышлении. Как ты думаешь, какой сбой привел к описанной тобой проблеме?</p>
+                            <div class="question__example">Пример: просроченные продукты появились потому, что владелец и персонал магазина не заботятся о покупателях и им важна только прибыль, а проверяющие органы закрывают на нарушения глаза. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Что ты можешь сделать?</h3>
+                            <p class="question__descr">У каждой проблемы может быть много решений. Можно написать жалобу в вышестоящие инстанции или потребовать разобраться акима, а можно попробовать решить проблему самому. Ведь «Казахстан – это моя зона ответственности». </p>
+                            <div class="question__example">Пример: прийти с друзьями в магазин, собрать все просроченные продукты и расплачиваться за них на кассе мелочью. Одновременно указывать продавцам на проблему и парализовать работу магазина, создавая очереди (чтобы никто ничего не купил и не отравился). Уйти только тогда, когда все просроченные товары уберут с полок. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Как ты назовешь свой проект?</h3>
+                            <p class="question__descr">Название – это бренд, по которому о тебе и проекте будут узнавать. Оно должно быть ярким и запоминающимся. Если сейчас нет ответа на этот вопрос, то укажи рабочее название. </p>
+                            <div class="question__example">Пример: рабочее название – «Бұзылған-dozor»</div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Как ты будешь развивать свой проект?</h3>
+                            <p class="question__descr">Ощутимые изменения в Республике наступят только при системной работе. Отобрази в примерном плане, как будет развиваться и масштабироваться твой проект. </p>
+                            <div class="question__example">Пример: раз в неделю с командой мы будем делиться на группы и проверять магазины города на наличие просроченных продуктов. Магазины, которые прошли проверку, наградим «орденом за заботу о покупателях». Нарушителей вынудим убрать просрочку или закрыться. Заведем YouTube-канал и еженедельно будем публиковать видеоотчеты о рейдах. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Как ты поймешь, что проект работает?</h3>
+                            <p class="question__descr">Выдели конкретные, измеримые показатели, по которым можно оценить успешность проекта. Имей в виду, важно не только то, что ты делаешь, но и как это отражается в общественном и медийном пространстве. </p>
+                            <div class="question__example">Пример: через месяц о проекте расскажут не менее 15 СМИ, канал на YouTube наберет 150 000 просмотров, в команде моего проекта будет 20 человек. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Какой финал у моего проекта?</h3>
+                            <p class="question__descr">Важно не только четко сформулировать проблему, но и точно представлять, чем проект должен завершиться. Представь, каким будет его финал? Или, проще говоря, как ты поймёшь, что победил? Если не можешь представить итог проекта, значит ты взял слишком общую тему и стоит вернуться в самое начало, чтобы конкретизировать проблематику. </p>
+                            <div class="question__example">Пример: магазин у моего дома давно превратился в показательный, а другие точки бьются за наклейку «В этом магазине продаются качественные продукты. Проверено «Бұзылған-dozor», ведь за проектом следят уже 500 тысяч подписчиков в социальной сети. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Что тебе понадобится?</h3>
+                            <p class="question__descr">Составь список того, что необходимо тебе для реализации проекта. Это могут быть как технические средства (видеокамера, программное обеспечение, ростовая кукла коня и т.д.), повышение профессиональных навыков (обучающий курс по фотошопу, ораторскому мастерству; мастер-класс по рисованию граффити и т.д.), так и небольшая помощь каких-либо специалистов (дизайнера, программиста, музыканта и т.д.).</p>
+                            <div class="question__example">
+                                Пример: <br>
+                                - камера GoPro;<br>
+                                - петличка (микрофон) для записи качественного звука;<br>
+                                - обучающий курс по монтажу видео для начинающих.<br>
+                            </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question__title">Что-то еще?</h3>
+                            <p class="question__descr">Если у тебя есть мысли и/или материалы, которые не вошли в ответы на вопросы, но мы точно должны с ними ознакомиться, то обязательно прикрепляй их. Но и не пугайся оставить это поле пустым, все ок. </p>
+                            <div class="question__example">Пример: заставка для ролика, вариант пресс-релиза, список поддержавших проект активистов Движения.</div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <button type="submit" class="blue-btn">Отправить проект</button>
+                        <div class="form-error">Одно или несколько полей заполнены некорректно, мы выделили их красным цветом. Пожалуйста, проверьте все поля или повторите попытку.</div>
+                    </div>
+                    <div class="questions-wrapper" id="isOuter">
+                        <div class="question-block">
+                            <h3 class="question__title">Чего не хватает движению?</h3>
+                            <p class="question__descr">Движение — это мы, активисты. И чем лучше мы будем, тем эффективнее окажется наша борьба за «Новый Казахстан». Поэтому постоянное развитие себя и своих коллег, улучшение внутренней организации, адаптация под новые вызовы и создание крепкой команды становятся поистине стратегическими задачами. </p>
+                            <div class="question__example">Напиши, что, по-твоему, обязательно следует добавить Движению. Может быть, какое-то событие, клуб для активистов, образовательный курс, внутреннюю структуру или что-то еще, чего пока нет, но обязательно должно появиться.</div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question__title">Как это поможет развитию движения?</h3>
+                            <p class="question__descr">Опиши, какую пользу твой проект принесет Движению и его участникам. Почему с ним Движению будет лучше, чем без него? </p>
+                            <div class="question__example">Пример: активисты в ходе просмотров и обсуждений научатся анализировать и размышлять, появится общая активность, которая будет объединять людей. 
+                                 
+                            </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question__title">Как ты назовешь свой проект?</h3>
+                            <p class="question__descr">Даже у внутренних проектов должны быть яркие и запоминающиеся названия, по которым о них будут узнавать. Если сейчас нет ответа на этот вопрос, то укажи рабочее название.</p>
+                            <div class="question__example">Пример: «Жаңа Адамдардың киноклубы»</div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question__title">Как будет работать проект?</h3>
+                            <p class="question__descr">Расскажи, как ты видишь свой проект в действии. Что будет происходить, где и как? Есть примерный график и/или план? Обязательно приложи и их.</p>
+                            <div class="question__example">Пример: каждую пятницу в штабе Движения я буду организовывать показ и обсуждение фильма, который затрагивает актуальные темы и непосредственно связан с манифестом Движения. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question__title">Как ты поймешь, что проект работает?</h3>
+                            <p class="question__descr">Выдели конкретные, измеримые показатели, по которым можно оценить успешность проекта. Имей в виду, что важно не только что ты делаешь, но и как это отразится на жизни остальных активистов и Движения в целом. </p>
+                            <div class="question__example">Пример: я проведу 4 встречи, в просмотрах и обсуждении поучаствуют не менее 100 человек. </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question__title">Что тебе понадобится?</h3>
+                            <p class="question__descr">Составь список того, что необходимо тебе для реализации проекта. Это могут быть как технические средства (видеокамера, программное обеспечение, ростовая кукла коня и т.д.), повышение профессиональных навыков (обучающий курс по фотошопу, ораторскому мастерству; мастер-класс по рисованию граффити и т.д.), так и небольшая помощь каких-либо специалистов (дизайнера, программиста, музыканта и т.д.).</p>
+                            <div class="question__example">Пример: <br>
+                                - проектор или ТВ;<br>
+                                - помещение для показа с мягкими стульями или пуфами;<br>
+                                - помощь дизайнера в отрисовке афиш предстоящих встреч.<br>
+                            </div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+
+                        <div class="question-block">
+                            <h3 class="question__title">Что-то еще?</h3>
+                            <p class="question__descr">У тебя есть мысли и/или материалы, которые не вошли в ответы на вопросы, но мы точно должны с ними ознакомиться? Тогда обязательно прикрепляй их. А если нет, то не пугайся оставить это поле пустым, все ок.</p>
+                            <div class="question__example">Пример: список из 10 фильмов с темами разговоров для каждого.</div>
+                            <div class="question__fieds">
+                                <textarea name="" placeholder="Мой ответ..."></textarea>
+                                <div class="question__file">
+                                    <input type="file" multiple>
+                                    <div class="ico"></div>
+                                    <span class="file__title">
+                                        <span class="normal-state">Выберите файлы</span>
+                                        <span class="error-state">Ошибка</span>
+                                        <span class="successful-state">Файлы выбраны</span>
+                                    </span>
+                                    <div class="file__descr">Максимальный размер одного файла:<br> 100 мб</div>
+                                </div>
+                            </div>
+                            <span class="error-mes">Описание возможной ошибки.</span>
+
+                        </div>
+                        <button type="submit" class="blue-btn">Отправить проект</button>
+                        <div class="form-error">Одно или несколько полей заполнены некорректно, мы выделили их красным цветом. Пожалуйста, проверьте все поля или повторите попытку.</div>
                     </div>
                 </form>
             </div>
@@ -86,6 +433,39 @@
     </main>
 
     <footer> </footer>
+
+
+    <!-- Модальное окно открыто при наличии класса show  -->
+    <div class="complite-modal">
+        <div class="complite-block">
+            <p>Этот сайт обрабатывает Ваши персональные данные для улучшения пользовательского опыта, подробная информация <a href="">тут</a></p>
+            <button class="complite-btn" onclick="this.closest('.complite-modal').classList.remove('show')">Принять и продолжить</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно открыто при наличии класса show, при успешной отправке добавить класс loaded -->
+    <div class="load-modal">
+        <div class="load-modal__wrapper">
+            <div class="load-modal__image">
+                <div class="image__wrap">
+                    <img src="img/man.svg" alt="">
+                    <img class="rotate" src="img/bal-w.svg" alt="">
+                </div>
+            </div>
+
+            <div class="load-modal__content loading-block">
+                <div class="load-modal__title">Ваш проект в процессе загрузки</div>
+                <div class="load-modal__descr">Пожалуйста, не закрывайте страницу до полной загрузки, иначе мы так и не получим ваш проект. В конце загрузки выйдет экран об успешной загрузки. Скорость загрузки напрямую зависит от скорости Вашего интернета, пожалуйста наберитесь терпения.</div>
+                <div class="load-modal__info">Загружаем файлы ...</div>
+            </div>
+
+            <div class="load-modal__content loaded-block">
+                <div class="load-modal__title">Спасибо за участие в проекте!</div>
+                <div class="load-modal__descr">Рыба текст. Следует отметить, что высокое качество позиционных исследований в значительной степени обусловливает важность форм воздействия. Безусловно, постоянный количественный рост и сфера нашей активности требует анализа глубокомысленных рассуждений. Следует отметить, что синтетическое тестирование в значительной степени обусловливает важность существующих финансовых и административных условий.</div>
+                <a href="/" class="locate-link">На главную</a>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="./js/app.min.js"></script>
 
