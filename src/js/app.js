@@ -2,6 +2,36 @@
 import * as baseFunction from './modules/functions.js';
 import './vendors/vendors.js';
 import IMask from 'imask';
+import AOS from 'aos';
+
+
+window.addEventListener('load', (e) => {
+    AOS.init(
+        {
+            // Global settings:
+            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+            startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+            initClassName: 'aos-init', // class applied after initialization
+            animatedClassName: 'aos-animate', // class applied on animation
+            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+
+            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+            offset: 50, // offset (in px) from the original trigger point
+            delay: 0, // values from 0 to 3000, with step 50ms
+            duration: 800, // values from 0 to 3000, with step 50ms
+            easing: 'ease', // default easing for AOS animations
+            once: true, // whether animation should happen only once - while scrolling down
+            mirror: false, // whether elements should animate out while scrolling past them
+            anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+        }
+    );
+});
+
 // Проверка поддержки webP
 baseFunction.testWebP();
 
@@ -30,8 +60,8 @@ radioSelect.forEach(radioBtn => {
 });
 
 
-// Ограничение 100MB
-const correсtFileSize = 100 * 1024 * 1024;
+// Ограничение 50MB
+const correсtFileSize = 50 * 1024 * 1024;
 const fileInputs = document.querySelectorAll('input[type="file"]');
 fileInputs.forEach(fileInput => {
     fileInput.addEventListener('input', (e) => {
@@ -45,12 +75,13 @@ fileInputs.forEach(fileInput => {
             const fileSize = file.size;
             return fileSize >= correсtFileSize;
         });
-        if (isHasError) {
+        if (isHasError || selectedFiles.length > 3) {
             inputParent.classList.add("_error");
         }
         else {
             inputParent.classList.add("successful");
         }
+        isHasErronInFrom();
     });
 });
 
@@ -112,7 +143,7 @@ questionForm.addEventListener('submit', async function (e) {
     questionItems.forEach(item => {
         const textareaField = item.querySelector('textarea');
         const textareaValue = textareaField.value.trim();
-        if (textareaValue.length < 1) {
+        if (textareaValue.length < 1 && !textareaField.classList.contains('no-req')) {
             item.classList.add('_error');
 
             textareaField.addEventListener('input', (e) => {
@@ -136,6 +167,7 @@ questionForm.addEventListener('submit', async function (e) {
         const userName = document.querySelector('#userName')?.value;
         const userPhone = document.querySelector('#userPhone')?.value;
         const userEmail = document.querySelector('#userEmail')?.value;
+
         formData.append('userName', userName);
         formData.append('userPhone', userPhone);
         formData.append('userEmail', userEmail);
@@ -158,6 +190,7 @@ questionForm.addEventListener('submit', async function (e) {
             const title = item.querySelector('.question__title');
             return title.innerHTML;
         });
+
         //Файлы
         const questionFiles = [...questionItems].map((item, position) => {
             const title = item.querySelector('.question__title').innerHTML;
@@ -165,7 +198,8 @@ questionForm.addEventListener('submit', async function (e) {
             const files = filesInput.files;
             for (let index = 0; index < files.length; index++) {
                 const element = files[index];
-                formData.append(`Файл по вопросу:"${title}"-${index + 1}`, element);
+                // formData.append(`Файл по вопросу:"${title}"-${index + 1}`, element);
+                formData.append(`Файл_по_вопросу:${title.replace(/ /ig, '_')}-${index + 1}`, element);
             }
         });
         //Массив с вопросами и ответами
@@ -187,9 +221,6 @@ questionForm.addEventListener('submit', async function (e) {
         // Отправляем
         let response = await fetch('sendmail.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            },
             body: formData
         });
         if (response.ok) {

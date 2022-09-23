@@ -210,7 +210,6 @@ li {
 .personal-data__item {
   display: flex;
   flex-direction: column;
-  // justify-content: space-between;
   width: 33.33%;
   padding: 0 15px;
   &._error {
@@ -222,12 +221,12 @@ li {
     }
   }
   span {
-    margin-bottom: 8px;
     font-weight: 400;
     font-size: 14px;
     line-height: 120%;
     color: #17171a;
     padding: 0px 15px;
+    padding-bottom: 8px;
     margin-bottom: auto;
   }
   input {
@@ -251,13 +250,13 @@ li {
 .selection-block {
   margin-bottom: 60px;
   display: flex;
-  gap: 30px;
+  gap: 20px;
   align-items: stretch;
   .selection-item {
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 30px;
     background-color: #fff;
     border: 1px solid #ebebeb;
     border-radius: 8px;
@@ -730,8 +729,11 @@ li {
   .personal-data {
     margin-bottom: 30px;
   }
-  .selection-block .selection-item {
-    padding: 20px;
+  .selection-block {
+    flex-direction: column;
+    .selection-item {
+      padding: 20px;
+    }
   }
 
   .complite-modal .complite-block {
@@ -755,7 +757,6 @@ li {
   }
   .selection-block {
     gap: 15px;
-    flex-direction: column;
     margin-bottom: 30px;
   }
   .question__fieds {
